@@ -1,0 +1,38 @@
+<ion-view>
+  <ion-header-bar class="bar-stable">
+    <h1 class="title">Alt Fuel Search</h1>
+  </ion-header-bar>
+  <ion-content>
+    <div class="list">
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Address</span>
+        <input type="text" placeholder="Address" ng-model="inputs.address">
+      </label>
+      <span ng-if="inputs.radius > 1"> Search radius: {{inputs.radius}} Miles </span>
+      <span ng-if="inputs.radius == 1"> Search radius: {{inputs.radius}} Mile </span>
+      <div class="item range">
+        <i class="icon ion-arrow-shrink"></i>
+        <input type="range" min="1" max="500" name="radius" ng-model="inputs.radius">
+        <i class="icon ion-arrow-expand"></i>
+      </div>
+      <label class="item item-input item-select">
+        <div class="input-label">
+          Fuel Type
+        </div>
+        <select ng-model="inputs.fuelType">
+          <option value="all">All</option>
+          <option value="BD">Biodiesel (B20 and above)</option>
+          <option value="CNG">Compressed Natural Gas</option>
+          <option value="E85">Ethanol (E85)</option>
+          <option value="ELEC">Electric</option>
+          <option value="HY">Hydrogen</option>
+          <option value="LNG">Liquefied Natural Gas</option>
+          <option value="LPG">Liquefied Petroleum Gas (Propane)</option>
+        </select>
+      </label>
+    </div>
+    <button ng-click="fuelSearch()" class="button button-block button-positive">
+      Search
+    </button>
+  </ion-content>
+</ion-view>

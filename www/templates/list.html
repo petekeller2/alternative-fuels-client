@@ -1,0 +1,31 @@
+<ion-view>
+  <ion-header-bar class="bar-stable">
+    <h1 class="title">List</h1>
+  </ion-header-bar>
+
+  <ion-content>
+    <h2 align="center">Sort By</h2>
+    <ion-radio class="halfOfScreen" ng-model="sortBy" ng-value="'totalDistance'">Distance</ion-radio>
+    <ion-radio class="halfOfScreen" ng-model="sortBy" ng-value="'totalDuration'">Duration</ion-radio>
+    <ion-list>
+      <ion-item class="item-icon-right" ng-repeat="station in fuelData | orderBy:sortBy track by $index">
+        <span class="halfOfScreen textOverFlow">{{station.combinedAddress}}</span>
+        <div class="fourthOfEl textOverFlow">
+          <span ng-if="station.distance.miles!=0"> {{station.distance.miles}} Miles </span>
+          <span ng-if="station.distance.feet!=0"> {{station.distance.feet}} Feet </span>
+          <span ng-if="station.distance.feet==0 && station.distance.miles==0"> 0 Feet </span>
+        </div>
+        <div class="fourthOfEl textOverFlow">
+          <span ng-if="station.duration.hours!=0"> {{station.duration.hours}} Hr </span>
+          <span ng-if="station.duration.minutes!=0"> {{station.duration.minutes}} Min </span>
+          <span ng-if="station.duration.minutes==0 && station.duration.hours==0"> 0 Min </span>
+        </div>
+        <div class="icon">
+          <i class="ion-location" ng-click="goToMap(station.longitude, station.latitude, station.combinedAddress, station.fuel_type_code, station.access_days_time, station.station_name, station.station_phone)"></i>
+          &nbsp;
+          <i ng-hide="usingWebsite" class="ion-map" ng-click="launchNavigator(station.combinedAddress)"></i>
+        </div>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

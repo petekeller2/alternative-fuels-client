@@ -1,0 +1,24 @@
+/* Empty. Add your own CSS if you like */
+
+map {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.scroll {
+  height: 100%;
+}
+.halfOfScreen {
+  width: 50%;
+  float:left;
+}
+
+.fourthOfEl {
+  width: 25%;
+  float: left;
+}
+
+.textOverFlow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
