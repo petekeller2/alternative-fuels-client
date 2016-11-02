@@ -14,7 +14,7 @@ angular.module('altFuels.factories', [])
 
   };
   /**
-   * @function setAccess
+   * @function getExtendedFuelStationsData
    * @memberOf altFuels.factories.ServerConnector
    * @param {string} fuelType
    * @param {string} address
